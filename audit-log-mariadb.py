@@ -78,12 +78,19 @@ def read_file(file_name):
 	with open(file_name,"r") as fd:
 		fd.seek(location) #将读取文件位置重新定位，初始值在文件中置为0，之后每次将最终位置写入文件进行存储
 		for line in fd:
-			print (type(line)) #读取出每行，line的类型为string
+#			print (type(line)) #读取出每行，line的类型为string
 			#print (line)
 			sql = "insert into audit(log) values(%s);"  #使用占位符的方式进行SQL语句拼接,这种方式可以将
 														#line中的特殊符号进行转译，避免拼接时发生语法错误
 			res = line.split(",")
 			date_time = res[0]
+			timeArray = time.strptime(date_time, "%Y%m%d %H:%M:%S")
+			
+			date_time = (time.mktime(timeArray))
+#			print (date_time)
+			date_time=datetime.datetime.fromtimestamp(date_time)
+			date_time=date_time.strftime("%Y-%m-%d %H:%M:%S.%f")
+
 			host_name = res[1]
 			user_name = res[2]
 			user_ip   = res[3]
