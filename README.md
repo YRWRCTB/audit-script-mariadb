@@ -8,6 +8,7 @@ server_aduit plugin adition: MariaDB Audit Plugin version 1.4.4
 MariaDB Audit Plugin插件兼容MySQL5.7
 
 1、下载mariadb-5.5.65-linux-x86_64.tar.gz解压获取server_audit.so插件
+  version 1.4.4版本在5.7.29中无法正常安装和使用，1.4.6 版本（mariadb-10.0.46）测试可用。
 
 2、登录MySQL，执行命令获取MySQL的plugin目录
 ```mysql
