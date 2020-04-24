@@ -59,9 +59,9 @@ def check_files():
 
 #远程数据库连接,日志存放数据库相关信息，
 #需要提前创建好用户和表
-db = mysqldb.connect(host="192.168.20.156",\
-user="root",password="easytech",\
-database="tian",charset="utf8")
+db = mysqldb.connect(host="192.168.20.XX",\
+user="xxx",password="xxx",\
+database="xxx",charset="utf8")
 
 
 #增量读取日志文件，并将其存储在远程数据库中
@@ -81,7 +81,7 @@ def read_file(file_name):
 #			print (type(line)) #读取出每行，line的类型为string
 			#print (line)
 			sql = "insert into audit(log) values(%s);"  #使用占位符的方式进行SQL语句拼接,这种方式可以将
-														#line中的特殊符号进行转译，避免拼接时发生语法错误
+							            #line中的特殊符号进行转译，避免拼接时发生语法错误
 			res = line.split(",")
 			date_time = res[0]
 			timeArray = time.strptime(date_time, "%Y%m%d %H:%M:%S")
