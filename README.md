@@ -90,4 +90,9 @@ server_audit_file_rotations=2
 
 日期 时间 主机名 用户名 用户IP 线程id 查询id 命令类型 SQL语句 命令状态
 
+8、卸载插件
+```sql
+UNINSTALL PLUGIN server_audit;
+```
+需要重启MySQL实例
 
